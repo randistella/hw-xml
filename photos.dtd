@@ -1,0 +1,26 @@
+<!-- 
+    Name:       Randi Stella
+    Class:      CIS-2330
+    Assignment: Homework #2a
+    Semester    Fall 2022
+    File:       photos.dtd
+    Purpose:    Catalog of collection of photos
+-->
+
+
+<!ELEMENT catalog (photos)+>
+<!ATTLIST catalog type NMTOKEN #REQUIRED>
+
+<!ELEMENT photo (name, description, date, images?)>
+<!ATTLIST photo cid ID #REQUIRED>
+<!ATTLIST photo donatedBy CDATA #IMPLIED>
+
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name metadata NMTOKENS #REQUIRED>
+
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT images (img)*>
+
+<!ELEMENT img EMPTY> 
+<!ATTLIST img src CDATA #REQUIRED> 
