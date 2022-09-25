@@ -4,11 +4,11 @@
     Assignment: Homework #2a
     Semester    Fall 2022
     File:       photos.dtd
-    Purpose:    Catalog of collection of photos
+    Purpose:    Catalog a collection of photos
 -->
 
 
-<!ELEMENT catalog (photos)+>
+<!ELEMENT catalog (photo)+>
 <!ATTLIST catalog type NMTOKEN #REQUIRED>
 
 <!ELEMENT photo (name, description, date, images?)>

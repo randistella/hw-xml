@@ -5,7 +5,7 @@
     Assignment: Homework #2a
     Semester    Fall 2022
     File:       photos.xml
-    Purpose:    Catalog of collection of photos
+    Purpose:    Catalog a collection of photos
 -->
 <!DOCTYPE catalog SYSTEM "photos.dtd"> 
 <catalog type="photos">
