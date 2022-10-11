@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<!-- 
+    Name:       Randi Stella
+    Class:      CIS-2330
+    Assignment: Homework #3b
+    Semester    Fall 2022
+    File:       Homework3b.xsd
+    Supporting Files: Homework3b.xml
+    Purpose:    2020 box office number one films in the US
+    Sources:    https://en.wikipedia.org/wiki/List_of_2020_box_office_number-one_films_in_the_United_States
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+     <xs:simpleType name="imbdCodeType">
+        <xs:restriction base="xs:ID">
+                <xs:pattern value="tt\d\d\d\d\d" />
+        </xs:restriction>
+    </xs:simpleType>
+
+<!--MOVIES ROOT ELEMENT-->
+    <xs:element name="movies">
+        <xs:complexType>
+
+<!--DISTRIBUTOR ELEMENT-->
+            <xs:element name="distributor">
+                <xs:attribute name="code">
+                    <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="sony" />
+                                <xs:enumeration value="paramount" />
+                                <xs:enumeration value="disney" />
+                                <xs:enumeration value="warner" />
+                                <xs:enumeration value="focus" />
+                            </xs:restriction>
+                    </xs:simpleType> 
+                </xs:attribute>
+                <xs:attribute name="name">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[A-Z][\-A-Za-z ,']+"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+                <!--MOVIE ELEMENT-->
+                    <xs:element name="movie">
+                            <xs:attribute name="title">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[A-Z][\-A-Za-z ,']+"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:attribute>
+                            <xs:attribute name="imbdCode" type="imbdCodeType" />
+                            <xs:attribute name="genre">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="action" />
+                                        <xs:enumeration value="adventure" />
+                                        <xs:enumeration value="war" />
+                                        <xs:enumeration value="horror" />
+                                        <xs:enumeration value="fantasy" />
+                                        <xs:enumeration value="thriller" />
+                                        <xs:enumeration value="comedy" />
+                                        <xs:enumeration value="western" />
+                                    </xs:restriction>
+                                </xs:simpleType> 
+                            </xs:attribute>
+                            <xs:attribute name="runningTime">
+                                 <xs:simpleType>
+                                    <xs:restriction base="xs:integer">
+                                        <xs:minInclusive value="1"/>
+                                        <xs:maxInclusive value="300"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:attribute>
+                            <xs:attribute name="releaseDate" type="xs:date">
+                            </xs:attribute>
+                            <xs:attribute name="gross" minOccurs="0" maxOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:integer">
+                                        <xs:minInclusive value="1"/>
+                                        <xs:maxInclusive value="40000000"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:attribute>
+                    </xs:element>
+            </xs:element>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
